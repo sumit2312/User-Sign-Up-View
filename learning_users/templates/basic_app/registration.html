@@ -1,6 +1,6 @@
 {% extends 'basic_app/base.html' %}
 {% load staticfiles %}
-
+{% load crispy_forms_tags %}
 {% block body_block %}
 
     <div class="jumbotron">
@@ -12,10 +12,10 @@
 
             <form enctype="multipart/form-data" method="post">
             {% csrf_token %}
-            {{ user_form.as_p }}
-            {{ profile_form.as_p }}
+            {{ user_form|crispy }}
+            {{ profile_form|crispy }}
 
-            <input type="submit" name="register" value="Register">
+            <input class="btn btn-primary" type="submit" name="register" value="Register">
 
             </form>
 
